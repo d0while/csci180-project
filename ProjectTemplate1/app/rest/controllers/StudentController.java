@@ -2,7 +2,7 @@ package app.rest.controllers;
 
 import java.util.List;
 
-import javax.ws.rs.Consumes;
+//import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import app.components.StudentComponent;
+import app.components.StudentDto;
 import app.entity.Student;
 
 @Component
@@ -39,8 +40,8 @@ public class StudentController {
 	@POST
 	@Path("/add")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Student addStudent(@QueryParam("name") String name, @QueryParam("email") String email) {
-		return studentComponent.saveStudent(name, email);
+	public Student addStudent(StudentDto dto) {
+		return studentComponent.saveStudent(dto);
 	}
 	
 	@GET

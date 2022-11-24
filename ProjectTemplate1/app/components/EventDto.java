@@ -1,4 +1,4 @@
-package app.entity;
+package app.components;
 
 import java.time.LocalDateTime;
 
@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Event {
+public class EventDto {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)  // autoincrement
 	@NotNull
@@ -19,16 +19,13 @@ public class Event {
 	
 	@NotNull
 	@Column
-	private String title;
+	private String name;
 	
 	@Column
 	private String description;
 	
 	@Column
-	private String type;
-	
-	@Column
-	private LocalDateTime due_date;
+	private LocalDateTime date;
 	
 	@Column
 	private String location;
@@ -45,12 +42,12 @@ public class Event {
 		this.id = id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getDescription() {
@@ -61,20 +58,12 @@ public class Event {
 		this.description = description;
 	}
 
-	public String getType() {
-		return type;
+	public LocalDateTime getDate() {
+		return date;
 	}
 
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public LocalDateTime getDue_date() {
-		return due_date;
-	}
-
-	public void setDue_date(LocalDateTime due_date) {
-		this.due_date = due_date;
+	public void setDate(LocalDateTime date) {
+		this.date = date;
 	}
 
 	public String getLocation() {
@@ -92,11 +81,12 @@ public class Event {
 	public void setStudent_id(Long student_id) {
 		this.student_id = student_id;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", type=" + type
-				+ ", due_date=" + due_date + ", location=" + location + ", student_id=" + student_id + "]";
+		return "Event [id=" + id + ", name=" + name + ", description=" + description + ", date=" + date + ", location="
+				+ location + ", student_id=" + student_id + "]";
 	}
-	
 }
+
+	
