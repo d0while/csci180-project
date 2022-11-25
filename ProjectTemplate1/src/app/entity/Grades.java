@@ -17,13 +17,52 @@ public class Grades {
 	
 	@NotNull
 	@Column
-	private Long student_id;
+	private Long studentId;
 	
 	@NotNull
 	@Column
-	private Long subject_id;
+	private Long subjectId;
 	
 	@NotNull
 	@Column
-	private Long grade;
+	private double grade;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
+
+	public Long getSubjectId() {
+		return subjectId;
+	}
+
+	public void setSubjectId(Long subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public double getGrade() {
+		return grade;
+	}
+
+	public void setGrade(double grade) {
+		this.grade = grade;
+	}
+
+	@Override
+	public String toString() {
+		return "Grades [id=" + id + ", studentId=" + studentId + ", subjectId=" + subjectId + ", grade=" + grade + "]";
+	}
+	
+	
 }
