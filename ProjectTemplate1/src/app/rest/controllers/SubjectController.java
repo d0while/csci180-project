@@ -34,8 +34,8 @@ public class SubjectController {
 	
 	@GET
 	@Path("/listbystudentid")
-	@Produces(MediaType.APPLICATION_XML)
-	public List<Subject> listSubjectsById(@QueryParam("studentId") Long studentId) {
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Subject> listSubjectsById(@QueryParam("studentId") long studentId) {
 		return subjectComponent.listSubjectsById(studentId);
 	}
 	

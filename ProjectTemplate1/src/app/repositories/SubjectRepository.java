@@ -8,7 +8,6 @@ import app.entity.Subject;
 
 public interface SubjectRepository extends JpaRepository<Subject, Long>{
 
-	List<Subject> findByStudentId(Long studentId);
-
+	List<Subject> findByStudentId(long studentId);
 
 }

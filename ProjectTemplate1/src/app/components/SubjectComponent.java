@@ -45,7 +45,7 @@ public class SubjectComponent {
 		return subjectRepo.findAll();
 	}
 	
-	public List<Subject> listSubjectsById(Long studentId) {
+	public List<Subject> listSubjectsById(long studentId) {
 		return subjectRepo.findByStudentId(studentId);
 	}
 	
