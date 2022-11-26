@@ -8,12 +8,14 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import app.components.TeacherComponent;
+
 import app.entity.Teacher;
 
 @Component
@@ -31,14 +33,22 @@ public class TeacherController {
 		return teacherComponent.listTeachers();
 	}
 	
+	@GET
+	@Path("/listbystudentid")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Teacher> listTeachersById(@QueryParam("studentId") long studentId) {
+		return teacherComponent.listTeachersById(studentId);
+	}
+	
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Teacher addTeacher(@FormParam("name") String name,
 							@FormParam("email") String email,
-							@FormParam("consultation_hours") String consultation_hours) {
-		return teacherComponent.addTeacher(name,email,consultation_hours);
+							@FormParam("consultation_hours") String consultation_hours,
+							@FormParam("studentId") long studentId) {
+		return teacherComponent.addTeacher(name,email,consultation_hours, studentId);
 	}
 	
 	@POST

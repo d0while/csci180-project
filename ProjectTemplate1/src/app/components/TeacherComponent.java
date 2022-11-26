@@ -21,22 +21,22 @@ public class TeacherComponent {
 	{
 		if (teacherRepo.count()==0)
 		{
-			Teacher t = addTeacher("Paula Bianca Pineda", "pbp@gmail.com", "Wednesday and Friday, 11:00am-8:00pm" );
+			Teacher t = addTeacher("Paula Bianca Pineda", "pbp@gmail.com", "Wednesday and Friday, 11:00am-8:00pm", 1 );
 			teacherRepo.save(t);
 			
-			t = addTeacher("Leanne Ena Trinidad", "let@gmail.com", "Monday and Friday, 11:00am-8:00pm" );
+			t = addTeacher("Leanne Ena Trinidad", "let@gmail.com", "Monday and Friday, 11:00am-8:00pm", 1 );
 			teacherRepo.save(t);
 			
-			t = addTeacher("Felizia Tiburcio", "ft@gmail.com", "Wednesday, 9:00am-5:00pm" );
+			t = addTeacher("Felizia Tiburcio", "ft@gmail.com", "Wednesday, 9:00am-5:00pm", 1 );
 			teacherRepo.save(t);
 			
-			t = addTeacher("Aedin Clay", "ac@gmail.com", "Tuesday and Thursday, 11:00am-8:00pm" );
+			t = addTeacher("Aedin Clay", "ac@gmail.com", "Tuesday and Thursday, 11:00am-8:00pm", 2 );
 			teacherRepo.save(t);
 			
-			t = addTeacher("Haze Bugayong", "hb@gmail.com", "Monday, 9:00am-5:00pm" );
+			t = addTeacher("Haze Bugayong", "hb@gmail.com", "Monday, 9:00am-5:00pm", 2 );
 			teacherRepo.save(t);
 			
-			t = addTeacher("Lance Andrei Tan", "lat@gmail.com", "Monday and Wednesday, 11:00am-8:00pm" );
+			t = addTeacher("Lance Andrei Tan", "lat@gmail.com", "Monday and Wednesday, 11:00am-8:00pm", 2 );
 			teacherRepo.save(t);
 		}
 	}
@@ -46,11 +46,16 @@ public class TeacherComponent {
 		return teacherRepo.findAll();
 	}
 	
-	public Teacher addTeacher(String name, String email, String consultation_hours) {
+	public List<Teacher> listTeachersById(long studentId) {
+		return teacherRepo.findByStudentId(studentId);
+	}
+	
+	public Teacher addTeacher(String name, String email, String consultation_hours, long studentId) {
 		Teacher t = new Teacher();
 		t.setName(name);
 		t.setEmail(email);
 		t.setConsultation_hours(consultation_hours);
+		t.setStudentId(studentId);
 		return teacherRepo.save(t);
 	}
 	
