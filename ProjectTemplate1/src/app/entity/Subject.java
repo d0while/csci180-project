@@ -24,97 +24,68 @@ public class Subject {
 	
 	@NotNull
 	@Column
-	private Long teacher_id;
+	private Long teacherId;
 	
 	@NotNull
 	@Column
 	private int units;
 	
 	@NotNull
-	@Column(name = "student_id", nullable = false)
-	private Long studentid;
-
-
+	@Column
+	private Long studentId;
 
 	public Long getId() {
 		return id;
 	}
 
-
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
 
 	public String getTitle() {
 		return title;
 	}
 
-
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
-
 
 	public String getSchedule() {
 		return schedule;
 	}
 
-
-
 	public void setSchedule(String schedule) {
 		this.schedule = schedule;
 	}
 
-
-
-	public Long getTeacher_id() {
-		return teacher_id;
+	public Long getTeacherId() {
+		return teacherId;
 	}
 
-
-
-	public void setTeacher_id(Long teacher_id) {
-		this.teacher_id = teacher_id;
+	public void setTeacherId(Long teacherId) {
+		this.teacherId = teacherId;
 	}
-
-
 
 	public int getUnits() {
 		return units;
 	}
 
-
-
 	public void setUnits(int units) {
 		this.units = units;
 	}
 
-
-
-	public Long getStudent_id() {
-		return studentid;
+	public Long getStudentId() {
+		return studentId;
 	}
 
-
-
-	public void setStudent_id(Long student_id) {
-		this.studentid = student_id;
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
 	}
-
-
 
 	@Override
 	public String toString() {
-		return "Subject [id=" + id + ", title=" + title + ", schedule=" + schedule + ", teacher_id=" + teacher_id
-				+ ", units=" + units + ", student_id=" + studentid + "]";
+		return "Subject [id=" + id + ", title=" + title + ", schedule=" + schedule + ", teacherId=" + teacherId
+				+ ", units=" + units + ", studentId=" + studentId + "]";
 	}
-
-
-
 
 }

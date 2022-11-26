@@ -45,18 +45,18 @@ public class SubjectComponent {
 		return subjectRepo.findAll();
 	}
 	
-	public List<Subject> listSubjectsById(Long student_id) {
-		return subjectRepo.findByStudentid(student_id);
+	public List<Subject> listSubjectsById(Long studentId) {
+		return subjectRepo.findByStudentId(studentId);
 	}
 	
 	
-	public Subject addSubject(String title, String schedule, Long teacher_id, int units, Long student_id) {
+	public Subject addSubject(String title, String schedule, Long teacherId, int units, Long studentId) {
 		Subject s = new Subject();
 		s.setTitle(title);
 		s.setSchedule(schedule);
-		s.setTeacher_id(teacher_id);
+		s.setTeacherId(teacherId);
 		s.setUnits(units);
-		s.setStudent_id(student_id);;
+		s.setStudentId(studentId);;
 		return subjectRepo.save(s);
 	}
 	

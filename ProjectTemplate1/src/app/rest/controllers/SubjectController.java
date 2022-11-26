@@ -35,8 +35,8 @@ public class SubjectController {
 	@GET
 	@Path("/listbystudentid")
 	@Produces(MediaType.APPLICATION_XML)
-	public List<Subject> listSubjectsById(@QueryParam("student_id") Long student_id) {
-		return subjectComponent.listSubjectsById(student_id);
+	public List<Subject> listSubjectsById(@QueryParam("studentId") Long studentId) {
+		return subjectComponent.listSubjectsById(studentId);
 	}
 	
 	
@@ -46,10 +46,10 @@ public class SubjectController {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Subject addSubject(@FormParam("title") String title,
 							@FormParam("schedule") String schedule,
-							@FormParam("teacher_id") Long teacher_id,
+							@FormParam("teacherId") Long teacherId,
 							@FormParam("units") int units,
-							@FormParam("student_id") Long student_id) {
-		return subjectComponent.addSubject(title, schedule, teacher_id, units, student_id);
+							@FormParam("studentId") Long student_id) {
+		return subjectComponent.addSubject(title, schedule, teacherId, units, student_id);
 	}
 
 	@POST
