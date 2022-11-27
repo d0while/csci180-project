@@ -26,6 +26,18 @@ public class Grades {
 	@NotNull
 	@Column
 	private double grade;
+	
+	@NotNull
+	@Column
+	private String letterGrade;
+
+	public String getLetterGrade() {
+		return letterGrade;
+	}
+
+	public void setLetterGrade(String letterGrade) {
+		this.letterGrade = letterGrade;
+	}
 
 	public Long getId() {
 		return id;
@@ -61,7 +73,8 @@ public class Grades {
 
 	@Override
 	public String toString() {
-		return "Grades [id=" + id + ", studentId=" + studentId + ", subjectId=" + subjectId + ", grade=" + grade + "]";
+		return "Grades [id=" + id + ", studentId=" + studentId + ", subjectId=" + subjectId + ", grade=" + grade
+				+ ", letterGrade=" + letterGrade + "]";
 	}
 	
 	
