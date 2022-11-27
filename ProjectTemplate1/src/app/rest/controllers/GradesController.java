@@ -28,22 +28,22 @@ public class GradesController {
 	@GET
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Grades> listGrades(@QueryParam("studentId") long studentId) {
+	public String listGrades(@QueryParam("studentId") long studentId) {
 		return gradesComponent.listGrades(studentId);
 	}
 	
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Grades addGrade(@FormParam("studentId") long studentId,
+	@Produces(MediaType.APPLICATION_XML)
+	public String addGrade(@FormParam("studentId") long studentId,
 							@FormParam("subjectId") long subjectId,
 							@FormParam("grade") String grade) {
 		return gradesComponent.saveGrade(studentId,subjectId,grade);
 	}
 	
 	@POST
-	@Path("delete")
+	@Path("/delete")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_XML)
 	public String deleteGrade(@FormParam("id") long id) {
@@ -51,8 +51,11 @@ public class GradesController {
 		return "deleted";
 	}
 	
-	public void qpiCalculator() {
-		
+	@GET
+	@Path("/qpi")
+	@Produces(MediaType.APPLICATION_JSON)
+	public double qpiCalculator(@QueryParam("studentId") long studentId) {
+		return gradesComponent.calculateQpi(studentId);
 	}
 
 	

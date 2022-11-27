@@ -11,5 +11,7 @@ public interface GradesRepository extends JpaRepository<Grades, Long>{
 
 	public List<Grades> findByStudentId(long studentId);
 	
+	public Grades findByStudentIdAndSubjectId(long studentId, long subjectId);
+	
 
 }
