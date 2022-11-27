@@ -14,50 +14,49 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import app.components.SubjectComponent;
-import app.entity.Subject;
+import app.components.TeacherComponent;
+
+import app.entity.Teacher;
 
 @Component
-@Path("/subjects")
-public class SubjectController {
+@Path("/teachers")
+public class TeacherController {
 	
 	@Autowired
-	SubjectComponent subjectComponent;
+	TeacherComponent teacherComponent;
 	
 	
 	@GET
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Subject> listSubjects() {
-		return subjectComponent.listSubjects();
+	public List<Teacher> listTeachers() {
+		return teacherComponent.listTeachers();
 	}
 	
 	@GET
 	@Path("/listbystudentid")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Subject> listSubjectsById(@QueryParam("studentId") long studentId) {
-		return subjectComponent.listSubjectsById(studentId);
+	public List<Teacher> listTeachersById(@QueryParam("studentId") long studentId) {
+		return teacherComponent.listTeachersById(studentId);
 	}
-	
 	
 	@POST
 	@Path("/add")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Subject addSubject(@FormParam("title") String title,
-							@FormParam("schedule") String schedule,
-							@FormParam("teacherId") Long teacherId,
-							@FormParam("units") int units,
-							@FormParam("studentId") Long student_id) {
-		return subjectComponent.addSubject(title, schedule, teacherId, units, student_id);
+	public Teacher addTeacher(@FormParam("name") String name,
+							@FormParam("email") String email,
+							@FormParam("consultation_hours") String consultation_hours,
+							@FormParam("studentId") long studentId) {
+		return teacherComponent.addTeacher(name,email,consultation_hours, studentId);
 	}
-
+	
 	@POST
 	@Path("delete")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_XML)
-	public String deleteSubject(@FormParam("id") long id) {
-		String output = subjectComponent.deleteSubject(id);
+	public String deleteTeacher(@FormParam("id") long id) {
+		String output = teacherComponent.deleteTeacher(id);
 		return output;
 	}
 	

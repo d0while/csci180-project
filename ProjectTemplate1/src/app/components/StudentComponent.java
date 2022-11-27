@@ -14,23 +14,16 @@ public class StudentComponent {
 	@Autowired
 	private StudentRepository studentRepo;
 	
-	public Student saveStudent(StudentDto dto) {
+	public Student saveStudent(String name, String email) {
 		Student s = new Student();
-		s.setName(dto.getName());
-		s.setEmail(dto.getEmail());
+		s.setName(name);
+		s.setEmail(email);
 		return studentRepo.save(s);
 	}
 	
 	public String deleteStudent(Long id) {
-		try
-		{
-			studentRepo.deleteById(id);
-			return "Student with id: [" + id + "] deleted";
-		}
-		catch(Exception e)
-		{
-			return "Error deleting student";
-		}
+		studentRepo.deleteById(id);
+		return "Student with id: [" + id + "] deleted";
 	}
 	
 	public List<Student> listStudents() {

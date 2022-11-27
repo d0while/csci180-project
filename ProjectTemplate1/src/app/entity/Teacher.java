@@ -24,6 +24,10 @@ public class Teacher {
 	
 	@Column
 	private String consultation_hours;
+	
+	@NotNull
+	@Column
+	private Long studentId;
 
 	public Long getId() {
 		return id;
@@ -56,11 +60,20 @@ public class Teacher {
 	public void setConsultation_hours(String consultation_hours) {
 		this.consultation_hours = consultation_hours;
 	}
+	
+
+	public Long getStudentId() {
+		return studentId;
+	}
+
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
+	}
 
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", name=" + name + ", email=" + email + ", consultation_hours="
-				+ consultation_hours + "]";
+				+ consultation_hours + ", studentId=" + studentId + "]";
 	}
 	
 	
