@@ -16,7 +16,7 @@ public class RequirementComponent {
 	private RequirementRepository requirementRepository;
 	
 	
-	public Requirement saveNewRequirement(String title, String instruction, String type, LocalDateTime dueDate, Long studentId, Long subjectId) {
+	public Requirement saveNewRequirement(String title, String instruction, String type, String dueDate, Long studentId, Long subjectId) {
 		Requirement r = new Requirement();
 		r.setTitle(title);
 		r.setInstruction(instruction);
@@ -25,6 +25,11 @@ public class RequirementComponent {
 		r.setStudentId(studentId);
 		r.setSubjectId(subjectId);
 		return requirementRepository.save(r);
+	}
+	
+	public String deleteRequirement(Long id) {
+		requirementRepository.deleteById(id);
+		return "Requirement with id: [" + id + "] deleted";
 	}
 	public List<Requirement> listRequirements () {
 		return requirementRepository.findAll();

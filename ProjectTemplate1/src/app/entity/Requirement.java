@@ -29,7 +29,7 @@ public class Requirement {
 	private String type;
 	
 	@Column
-	private LocalDateTime dueDate;
+	private String dueDate;
 	
 	@NotNull
 	@Column
@@ -75,11 +75,11 @@ public class Requirement {
 		this.type = type;
 	}
 
-	public LocalDateTime getDueDate() {
+	public String getDueDate() {
 		return dueDate;
 	}
 
-	public void setDueDate(LocalDateTime dueDate) {
+	public void setDueDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 
