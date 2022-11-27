@@ -29,4 +29,8 @@ public class RequirementComponent {
 	public List<Requirement> listRequirements () {
 		return requirementRepository.findAll();
 	}
+	
+	public long countByAccomplished() {
+		return requirementRepository.countByAccomplished();
+	}
 }
