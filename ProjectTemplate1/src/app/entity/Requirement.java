@@ -29,15 +29,19 @@ public class Requirement {
 	private String type;
 	
 	@Column
-	private LocalDateTime due_date;
+	private LocalDateTime dueDate;
 	
 	@NotNull
 	@Column
-	private Long student_id;
+	private Long studentId;
 	
 	@NotNull
 	@Column
-	private Long subject_id;
+	private Long subjectId;
+	
+	@NotNull
+	@Column
+	private Boolean accomplished;
 
 	public Long getId() {
 		return id;
@@ -71,34 +75,44 @@ public class Requirement {
 		this.type = type;
 	}
 
-	public LocalDateTime getDue_date() {
-		return due_date;
+	public LocalDateTime getDueDate() {
+		return dueDate;
 	}
 
-	public void setDue_date(LocalDateTime due_date) {
-		this.due_date = due_date;
+	public void setDueDate(LocalDateTime dueDate) {
+		this.dueDate = dueDate;
 	}
 
-	public Long getStudent_id() {
-		return student_id;
+	public Long getStudentId() {
+		return studentId;
 	}
 
-	public void setStudent_id(Long student_id) {
-		this.student_id = student_id;
+	public void setStudentId(Long studentId) {
+		this.studentId = studentId;
 	}
 
-	public Long getSubject_id() {
-		return subject_id;
+	public Long getSubjectId() {
+		return subjectId;
 	}
 
-	public void setSubject_id(Long subject_id) {
-		this.subject_id = subject_id;
+	public void setSubjectId(Long subjectId) {
+		this.subjectId = subjectId;
+	}
+
+	public Boolean getAccomplished() {
+		return accomplished;
+	}
+
+	public void setAccomplished(Boolean accomplished) {
+		this.accomplished = accomplished;
 	}
 
 	@Override
 	public String toString() {
 		return "Requirement [id=" + id + ", title=" + title + ", instruction=" + instruction + ", type=" + type
-				+ ", due_date=" + due_date + ", student_id=" + student_id + ", subject_id=" + subject_id + "]";
+				+ ", dueDate=" + dueDate + ", studentId=" + studentId + ", subject_id=" + subjectId
+				+ ", accomplished=" + accomplished + "]";
 	}
+
 	
 }
