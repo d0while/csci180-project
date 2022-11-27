@@ -30,6 +30,13 @@ public class StudentController {
 	}
 	
 	@GET
+	@Path("/findById")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Student findById (@QueryParam("id") Long id){
+		return studentComponent.findById(id);
+	}
+	
+	@GET
 	@Path("/findByName")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Student> findByName (@QueryParam("name") String nameQuery){

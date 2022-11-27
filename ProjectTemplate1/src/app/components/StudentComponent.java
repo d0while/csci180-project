@@ -1,6 +1,7 @@
 package app.components;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -28,6 +29,10 @@ public class StudentComponent {
 	
 	public List<Student> listStudents() {
 		return studentRepo.findAll();
+	}
+	
+	public Student findById(Long id) {
+		return studentRepo.findById(id).orElse(null);
 	}
 	
 	public List<Student> findByName(String nameQuery) {
