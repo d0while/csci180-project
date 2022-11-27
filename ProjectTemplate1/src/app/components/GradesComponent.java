@@ -1,6 +1,8 @@
 package app.components;
 
 import java.util.List;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -164,7 +166,11 @@ public class GradesComponent {
 		
 		double qpi = totalRawScore / totalUnits;
 		
-		return qpi;
+		double roundedQpi = BigDecimal.valueOf(qpi)
+				    .setScale(2, RoundingMode.HALF_UP)
+				    .doubleValue();
+		
+		return roundedQpi;
 	}
 	
 
