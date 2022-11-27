@@ -23,6 +23,7 @@ public class Grades {
 	@Column
 	private Long subjectId;
 	
+	@NotNull
 	@Column
 	private double grade;
 	
