@@ -8,5 +8,5 @@ import app.entity.Teacher;
 
 public interface TeacherRepository extends JpaRepository<Teacher, Long>{
 
-	List<Teacher> findByStudentId(long studentId);
+	public List<Teacher> findByStudentId(long studentId);
 }
