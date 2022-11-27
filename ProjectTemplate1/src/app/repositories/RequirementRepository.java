@@ -11,14 +11,14 @@ public interface RequirementRepository extends JpaRepository<Requirement, Long>{
 	
 		
 	@Query("SELECT r FROM Requirement r WHERE r.accomplished=true and r.studentId=?1")
-	List<Requirement> findByStudentId(String studentId);
+	List<Requirement> findByStudentId(Long studentId);
 	
 	@Query("SELECT r FROM Requirement r WHERE r.studentId=?1")
-	List<Requirement> findAccomplishedByStudentId(String studentId);
+	List<Requirement> findAccomplishedByStudentId(Long studentId);
 	
 	@Query("SELECT COUNT(r) FROM Requirement r WHERE r.accomplished=true")
 	long countAccomplished();
 	
 	@Query("SELECT COUNT(r) FROM Requirement r WHERE r.accomplished=true and r.studentId=?1")
-	long countAccomplishedByStudentId(String studentId);
+	long countAccomplishedByStudentId(Long studentId);
 }

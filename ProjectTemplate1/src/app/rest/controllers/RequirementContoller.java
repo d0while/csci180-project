@@ -26,21 +26,21 @@ public class RequirementContoller {
 	@GET
 	@Path("/list")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Requirement> findByStudentId(@QueryParam("studentId") String studentId){
+	public List<Requirement> findByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.findByStudentId(studentId);
 	}
 	
 	@GET
 	@Path("/list_accomplished")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Requirement> findAccomplishedByStudentId(@QueryParam("studentId") String studentId){
+	public List<Requirement> findAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.findAccomplishedByStudentId(studentId);
 	}
 	
 	@GET
 	@Path("/count_accomplished")
 	@Produces(MediaType.APPLICATION_JSON)
-	public long countAccomplishedByStudentId(@QueryParam("studentId") String studentId){
+	public long countAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.countAccomplishedByStudentId(studentId);
 	}
 	

@@ -35,15 +35,15 @@ public class RequirementComponent {
 		return requirementRepository.findAll();
 	}
 	
-	public List<Requirement> findByStudentId(String studentId){
+	public List<Requirement> findByStudentId(Long studentId){
 		return requirementRepository.findByStudentId(studentId);
 	}	
 	
-	public List<Requirement> findAccomplishedByStudentId(String studentId) {
+	public List<Requirement> findAccomplishedByStudentId(Long studentId) {
 		return requirementRepository.findAccomplishedByStudentId(studentId);
 	}
 	
-	public long countAccomplishedByStudentId(String studentId) {
+	public long countAccomplishedByStudentId(Long studentId) {
 		return requirementRepository.countAccomplishedByStudentId(studentId);
 	}
 }
