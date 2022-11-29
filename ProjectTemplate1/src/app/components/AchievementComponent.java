@@ -34,8 +34,12 @@ public class AchievementComponent {
 		}
 		//Achievement for QPI > 3.35
 		if (gradesComponent.calculateQpi(studentId) > 3.35) {
-			makeAchievement("Smart", "Your QPI is higher than 3.35.");			
+			makeAchievement("Second Honor", "Your QPI is higher than 3.35.");			
 		}	
+		//Achievement for QPI > 3.7
+		if (gradesComponent.calculateQpi(studentId) > 3.7) {
+			makeAchievement("First Honor", "Your QPI is higher than 3.7.");			
+		}
 		return s;
 	}
 
