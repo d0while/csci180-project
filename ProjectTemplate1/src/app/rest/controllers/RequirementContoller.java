@@ -31,21 +31,21 @@ public class RequirementContoller {
 	@GET
 	@Path("/listByStudent")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Requirement> findByStudentId(@QueryParam("studentId") Long studentId){
+	public List<Requirement> findByStudentId(@QueryParam("student_id") Long studentId){
 		return requirementComponent.findByStudentId(studentId);
 	}
 	
 	@GET
 	@Path("/findAccomplishedByStudent")
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Requirement> findAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
+	public List<Requirement> findAccomplishedByStudentId(@QueryParam("student_id") Long studentId){
 		return requirementComponent.findAccomplishedByStudentId(studentId);
 	}
 	
 	@GET
 	@Path("/countAccomplishedById")
 	@Produces(MediaType.APPLICATION_JSON)
-	public long countAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
+	public long countAccomplishedByStudentId(@QueryParam("student_id") Long studentId){
 		return requirementComponent.countAccomplishedByStudentId(studentId);
 	}
 	
@@ -72,7 +72,7 @@ public class RequirementContoller {
 	@GET
 	@Path("/complete")
 	@Produces(MediaType.TEXT_PLAIN)
-	public String completeAssignment(@QueryParam("requirementId") Long id) {
+	public String completeAssignment(@QueryParam("requirement_id") Long id) {
 		return requirementComponent.completeAssignment(id);
 	}
 }
