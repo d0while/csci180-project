@@ -150,7 +150,9 @@ public class GradesComponent {
 		
 		// get student's grades
 		List <Grades> grades = gradesRepo.findByStudentId(studentId);
-		
+		if (grades.size() == 0) {
+			return 0;
+		}
 		for (Grades grade : grades) {
 			long subjectId = grade.getSubjectId();
 			

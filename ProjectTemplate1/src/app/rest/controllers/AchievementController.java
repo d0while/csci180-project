@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import app.components.AchievementComponent;
 
 @Component
-@Path("/achievement")
+@Path("/achievements")
 public class AchievementController {
 	@Autowired
 	AchievementComponent achievementComponent;

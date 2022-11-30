@@ -22,23 +22,23 @@ public class AchievementComponent {
 		
 		//Achievement for 1 completed Assignments
 		if (requirementRepository.countAccomplishedByStudentId(studentId) >= 1) {
-			makeAchievement("Beginner", "You completed a requirement.");
+			s += makeAchievement("Beginner", "You completed a requirement.");
 		}
 		//Achievement for 10 completed Assignments
 		if (requirementRepository.countAccomplishedByStudentId(studentId) >= 5) {
-			makeAchievement("Apprentice", "You completed 10 requirements.");
+			s += makeAchievement("Apprentice", "You completed 10 requirements.");
 		}
 		//Achievement for 20 completed Assignments
 		if (requirementRepository.countAccomplishedByStudentId(studentId) >= 20) {
-			makeAchievement("Expert", "You completed 20 requirements.");
+			s += makeAchievement("Expert", "You completed 20 requirements.");
 		}
 		//Achievement for QPI > 3.35
 		if (gradesComponent.calculateQpi(studentId) > 3.35) {
-			makeAchievement("Second Honor", "Your QPI is higher than 3.35.");			
+			s += makeAchievement("Second Honor", "Your QPI is higher than 3.35.");			
 		}	
 		//Achievement for QPI > 3.7
 		if (gradesComponent.calculateQpi(studentId) > 3.7) {
-			makeAchievement("First Honor", "Your QPI is higher than 3.7.");			
+			s += makeAchievement("First Honor", "Your QPI is higher than 3.7.");			
 		}
 		return s;
 	}
