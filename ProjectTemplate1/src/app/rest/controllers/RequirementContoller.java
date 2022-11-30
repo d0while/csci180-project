@@ -27,6 +27,12 @@ public class RequirementContoller {
 	public Requirement findById(@QueryParam("id") Long id) {
 		return requirementComponent.findById(id);
 	}
+	@GET
+	@Path("/list")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Requirement> listRequirements () {
+		return requirementComponent.listRequirements();
+	}
 	
 	@GET
 	@Path("/listByStudent")
