@@ -49,7 +49,7 @@ public class RequirementContoller {
 	}
 	
 	@GET
-	@Path("/countAccomplishedById")
+	@Path("/countAccomplishedByStudent")
 	@Produces(MediaType.APPLICATION_JSON)
 	public long countAccomplishedByStudentId(@QueryParam("student_id") Long studentId){
 		return requirementComponent.countAccomplishedByStudentId(studentId);
@@ -76,7 +76,7 @@ public class RequirementContoller {
 		return requirementComponent.deleteRequirement(id);
 	}
 	@GET
-	@Path("/complete")
+	@Path("/accomplish")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String completeAssignment(@QueryParam("requirement_id") Long id) {
 		return requirementComponent.completeAssignment(id);
