@@ -1,6 +1,5 @@
 package app.rest.controllers;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.ws.rs.GET;
@@ -11,7 +10,6 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import app.components.RequirementComponent;
@@ -24,21 +22,28 @@ public class RequirementContoller {
 	RequirementComponent requirementComponent;
 
 	@GET
-	@Path("/list")
+	@Path("/find")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Requirement findById(@QueryParam("id") Long id) {
+		return requirementComponent.findById(id);
+	}
+	
+	@GET
+	@Path("/listByStudent")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Requirement> findByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.findByStudentId(studentId);
 	}
 	
 	@GET
-	@Path("/list_accomplished")
+	@Path("/findAccomplishedByStudent")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Requirement> findAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.findAccomplishedByStudentId(studentId);
 	}
 	
 	@GET
-	@Path("/count_accomplished")
+	@Path("/countAccomplishedById")
 	@Produces(MediaType.APPLICATION_JSON)
 	public long countAccomplishedByStudentId(@QueryParam("studentId") Long studentId){
 		return requirementComponent.countAccomplishedByStudentId(studentId);
@@ -63,5 +68,11 @@ public class RequirementContoller {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteRequirement(@QueryParam("id") Long id) {
 		return requirementComponent.deleteRequirement(id);
+	}
+	@GET
+	@Path("/complete")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String completeAssignment(@QueryParam("requirementId") Long id) {
+		return requirementComponent.completeAssignment(id);
 	}
 }

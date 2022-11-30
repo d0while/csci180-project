@@ -3,6 +3,8 @@ package app.components;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.ws.rs.QueryParam;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,10 @@ public class RequirementComponent {
 		return requirementRepository.findAll();
 	}
 	
+	public Requirement findById(Long id) {
+		return requirementRepository.findById(id).orElse(null);
+	}
+	
 	public List<Requirement> findByStudentId(Long studentId){
 		return requirementRepository.findByStudentId(studentId);
 	}	
@@ -45,5 +51,12 @@ public class RequirementComponent {
 	
 	public long countAccomplishedByStudentId(Long studentId) {
 		return requirementRepository.countAccomplishedByStudentId(studentId);
+	}
+	
+	public String completeAssignment(Long id) {
+		Requirement r = requirementRepository.findById(id).orElse(null);
+		r.setAccomplished(true);
+		requirementRepository.save(r);
+		return "Requirement with id: [" + id + "] true";
 	}
 }
