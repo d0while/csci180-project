@@ -26,6 +26,7 @@ public class RequirementComponent {
 		r.setDueDate(dueDate);
 		r.setStudentId(studentId);
 		r.setSubjectId(subjectId);
+		r.setAccomplished(false);
 		return requirementRepository.save(r);
 	}
 	
