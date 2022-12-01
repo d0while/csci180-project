@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Event {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)  // autoincrement
 	@NotNull
@@ -28,7 +29,7 @@ public class Event {
 	private String type;
 	
 	@Column
-	private LocalDateTime due_date;
+	private String dueDate;
 	
 	@Column
 	private String location;
@@ -69,12 +70,12 @@ public class Event {
 		this.type = type;
 	}
 
-	public LocalDateTime getDue_date() {
-		return due_date;
+	public String getDuedate() {
+		return dueDate;
 	}
 
-	public void setDue_date(LocalDateTime due_date) {
-		this.due_date = due_date;
+	public void setDueDate(String dueDate) {
+		this.dueDate = dueDate;
 	}
 
 	public String getLocation() {
@@ -96,7 +97,7 @@ public class Event {
 	@Override
 	public String toString() {
 		return "Event [id=" + id + ", title=" + title + ", description=" + description + ", type=" + type
-				+ ", due_date=" + due_date + ", location=" + location + ", student_id=" + student_id + "]";
+				+ ", dueDate=" + dueDate + ", location=" + location + ", student_id=" + student_id + "]";
 	}
 	
 }

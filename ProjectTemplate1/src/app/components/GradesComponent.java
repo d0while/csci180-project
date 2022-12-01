@@ -31,7 +31,7 @@ public class GradesComponent {
 	public String listGrades(long studentId) {
 		String message = "";
 				
-		Student student = studentRepo.findById(studentId);
+		Student student = (Student) studentRepo.findById(studentId);
 		List<Grades> grades = gradesRepo.findByStudentId(studentId);
 		
 		message += student.getName() + "\'s grades\n";
@@ -57,7 +57,7 @@ public class GradesComponent {
 		String message = "";
 		boolean flag = false;
 		
-		Student student = studentRepo.findById(studentId);
+		Student student = (Student) studentRepo.findById(studentId);
 		String studentName = student.getName();
 		
 		List<Subject> subjects = subjectRepo.findByStudentId(studentId);

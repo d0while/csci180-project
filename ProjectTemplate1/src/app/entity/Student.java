@@ -15,12 +15,22 @@ public class Student {
 	@Column
 	private Long id;
 	
-	@NotNull
 	@Column
 	private String name;
 	
 	@Column
 	private String email;
+	
+	@Column
+	private Long imageId;
+
+	public Long getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(Long imageid) {
+		this.imageId = imageid;
+	}
 
 	public Long getId() {
 		return id;
